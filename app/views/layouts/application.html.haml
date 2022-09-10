@@ -10,4 +10,6 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
     .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
       = yield

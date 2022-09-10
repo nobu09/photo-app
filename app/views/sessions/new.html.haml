@@ -1,6 +1,12 @@
 %h1 ログイン
 
-= form_with scope: :session, local: true do |f|
+- if flash.now[:danger].present?
+  .alert.alert-danger
+    - flash.now[:danger].each do |message|
+      = message
+      %br
+
+= form_with scope: :session, url: login_path do |f|
   .form-group.row
     = f.label :login, 'ユーザーID', class: 'col-form-label col-sm-2'
     .col-sm-6
