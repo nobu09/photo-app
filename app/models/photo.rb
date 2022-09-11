@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
   has_one_attached :image
+  belongs_to :user
 
   validates :title, presence: true, length: { maximum: 30 }
   validate :validate_presence_of_image

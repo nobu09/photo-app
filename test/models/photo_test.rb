@@ -2,7 +2,7 @@ require "test_helper"
 
 class PhotoTest < ActiveSupport::TestCase
   setup do
-    @photo = Photo.new(title: 'あ' * 30)
+    @photo = Photo.new(title: 'あ' * 30, user: User.find_by(login: 'user1'))
     @photo.image.attach(io: File.open(Rails.root.join('test/fixtures/files/test.png')), filename: 'test.png')
   end
 
