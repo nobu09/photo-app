@@ -1,2 +1,12 @@
-%h1 Photos#index
-%p Find me in app/views/photos/index.html.haml
+%h1 写真一覧
+
+= link_to '写真をアップロードする', new_photo_path
+
+.card-group
+  .row.row-cols-1.row-cols-md-4.g-2
+    - @photos.each do |photo|
+      .col
+        .card.h-100
+          .card-img-top= image_tag photo.image.variant(resize_to_limit: [300, 300]), class: 'w-100' if photo.image.attached?
+          .card-body
+            %h5.card-title= photo.title

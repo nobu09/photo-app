@@ -1,2 +1,15 @@
-%h1 Photos#new
-%p Find me in app/views/photos/new.html.haml
+%h1 写真アップロード
+
+= form_with model: @photo do |f|
+  .form-group.row
+    = f.label :login, 'タイトル', class: 'col-form-label col-sm-2'
+    .col-sm-6
+      = f.text_field :title, class: 'form-control', id: 'photo_title'
+  .form-group.row
+    = f.label :image, '画像ファイル', class: 'col-form-label col-sm-2'
+    .col-sm-6
+      = f.file_field :image, class: 'form-control'
+
+  = f.submit 'アップロード', class: 'btn btn-primary'
+
+= link_to 'キャンセル', photos_path
