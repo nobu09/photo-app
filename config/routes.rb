@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'sessions#new'
 
-  get 'login', to: 'sessions#new'
+  get  'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+
+  get  'photos',     to: 'photos#index'
+  post 'photos',     to: 'photos#create'
+  get  'photos/new', to: 'photos#new', as: 'new_photo'
 end
