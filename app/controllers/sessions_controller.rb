@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :login_required
+
   def new
   end
 
@@ -19,6 +21,11 @@ class SessionsController < ApplicationController
       flash.now[:danger] = ['入力されたユーザーIDとパスワードに一致するユーザーが存在しません']
       render :new
     end
+  end
+
+  def destroy
+    reset_session
+    redirect_to login_path, notice: 'ログアウトしました'
   end
 
   private
