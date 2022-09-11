@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     user = User.find_by(login: session_params[:login])
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to login_path, notice: 'ログインしました'
+      redirect_to photos_path, notice: 'ログインしました'
     else
       flash.now[:danger] = ['入力されたユーザーIDとパスワードに一致するユーザーが存在しません']
       render :new

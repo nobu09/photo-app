@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "ログインできる" do
     post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
-    assert_redirected_to login_path
+    assert_redirected_to photos_path
     assert_equal "ログインしました", flash.notice
   end
 
