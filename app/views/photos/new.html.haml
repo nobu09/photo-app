@@ -1,5 +1,11 @@
 %h1 写真アップロード
 
+- if @photo.errors.present?
+  .alert.alert-danger
+    - @photo.errors.each do |error|
+      = error.full_message
+      %br
+
 = form_with model: @photo do |f|
   .form-group.row
     = f.label :login, 'タイトル', class: 'col-form-label col-sm-2'

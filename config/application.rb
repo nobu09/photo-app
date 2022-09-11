@@ -19,5 +19,8 @@ module NewPhotoApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_storage.variant_processor = :mini_magick
+
+    # field_with_errorsによるレイアウト崩れを避けるために設定
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

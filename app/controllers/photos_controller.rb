@@ -8,9 +8,12 @@ class PhotosController < ApplicationController
   end
 
   def create
-    photo = Photo.new(photo_params)
-    photo.save!
-    redirect_to photos_path, notice: '写真をアップロードしました'
+    @photo = Photo.new(photo_params)
+    if @photo.save
+      redirect_to photos_path, notice: '写真をアップロードしました'
+    else
+      render :new
+    end
   end
 
   private
