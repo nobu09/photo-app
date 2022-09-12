@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all.order(created_at: :desc)
+    @photos = Photo.where(user: current_user).order(created_at: :desc)
   end
 
   def new
@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = current_user
     if @photo.save
       redirect_to photos_path, notice: '写真をアップロードしました'
     else
