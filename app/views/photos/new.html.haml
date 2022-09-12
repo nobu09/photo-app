@@ -16,6 +16,7 @@
     .col-sm-6
       = f.file_field :image, class: 'form-control'
 
-  = f.submit 'アップロード', class: 'btn btn-primary'
+  %hr
 
-= link_to 'キャンセル', photos_path
+  = f.submit 'アップロード', class: 'btn btn-primary'
+  = link_to 'キャンセル', photos_path, class: 'btn btn-secondary'
