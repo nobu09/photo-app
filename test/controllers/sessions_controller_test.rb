@@ -10,6 +10,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
     assert_redirected_to photos_path
     assert_equal "ログインしました", flash.notice
+    assert_equal User.find_by(login: "user1").id, session[:user_id]
   end
 
   test "ユーザーIDとパスワードが未入力時のエラーメッセージ" do
@@ -22,5 +23,11 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { login: "user", password: "P@ssw0rd" }}
     assert_response :success
     assert_equal %w[入力されたユーザーIDとパスワードに一致するユーザーが存在しません], flash.now[:danger]
+  end
+
+  test "ログアウト" do
+    delete logout_path
+    assert_redirected_to login_path
+    assert_nil session[:user_id]
   end
 end
