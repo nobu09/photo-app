@@ -1,24 +1,36 @@
 # README
+写真管理アプリケーション（ツイート機能付き）です
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ローカル環境構築
+- ローカルに、Ruby 3.1.2 をインストールする
+- https://github.com/nobu09/photo-app からクローンし、以下のコマンドを実行
 
-Things you may want to cover:
+```ruby
+cd photo-app
+gem install bundler  # bundlerが未インストールの場合のみ
+bundle install
+bin/rails db:create
+bin/rails db:migrate
+bin/rails db:seed # 初期データ投入
+```
 
-* Ruby version
+## ローカル実行方法
+- 外部連携APIのBASEのURL（ENDPOINT_URL）、CLIENT_ID（クライアントID）、CLIENT_SECRET（クライアントシークレット）の環境変数で与えて、bin/rails sで起動する
 
-* System dependencies
+```ruby
+ENDPOINT_URL="https://xxxxxx" CLIENT_ID="xxxxxxx" CLIENT_SECRET="xxxxxxx" bin/rails s
+```
 
-* Configuration
+- http://localhost:3000 にアクセスするとログイン画面が表示される
+- 以下の情報でログイン可能
+  - ユーザーID: `user1` or `user2` 
+  - パスワード: `P@ssw0rd`
 
-* Database creation
+## Ruby / Rais version
+- Ruby: 3.1.2 
+- Ralis: 7.0.4
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## テスト実行方法
+```ruby
+bin/rails test
+```
