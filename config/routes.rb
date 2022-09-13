@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  'photos',     to: 'photos#index'
   post 'photos',     to: 'photos#create'
   get  'photos/new', to: 'photos#new', as: 'new_photo'
+  post 'tweet/:id', to: 'photos#tweet', as: 'tweet_photo'
 
   get 'oauth/authorize'
   get 'oauth/callback'

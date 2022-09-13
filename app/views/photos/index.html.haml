@@ -1,7 +1,8 @@
 %h1 写真一覧
 
-= link_to 'MyTwitterAppと連携', oauth_authorize_path
-= link_to '写真をアップロードする', new_photo_path
+%ul.list-inline
+  %li.list-inline-item= link_to 'MyTwitterAppと連携', oauth_authorize_path
+  %li.list-inline-item= link_to '写真をアップロードする', new_photo_path
 
 %hr
 
@@ -10,6 +11,9 @@
     - @photos.each do |photo|
       .col
         .card.h-100
-          .card-img-top= image_tag photo.image.variant(resize_to_limit: [600, 600]), class: 'w-100' if photo.image.attached?
+          .card-img-top= image_tag photo.image_variant_path, class: 'w-100' if photo.image.attached?
           .card-body
             %h5.card-title= photo.title
+          - if session[:access_token].present?
+            .card-text.m-auto
+              = button_to 'ツイートする', tweet_photo_path(photo.id), method: :post, class: 'btn btn-primary'
