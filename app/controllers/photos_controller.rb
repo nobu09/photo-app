@@ -2,7 +2,9 @@ require 'net/http'
 
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.where(user: current_user).order(created_at: :desc)
+    @photos = Photo.with_attached_image
+                   .where(user: current_user)
+                   .order(created_at: :desc)
   end
 
   def new
