@@ -9,10 +9,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
-    .navbar.navbar-expand-md.navbar-light.bg-light
-      .ul.navbar-nav.ml-auto
-        - if current_user
-          %li.nav-item.p-2= button_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary'
+
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
