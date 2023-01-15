@@ -21,9 +21,10 @@ jobs:
       - name: Bundler and gem install
         run: |
           gem install bundler
+          bundle lock --add-platform x86_64-linux
           bundle install --jobs 4 --retry 3 --path vendor/bundle
 
-      - name: Yarn install
+      - name: Setup JavaScript
         run: |
           bin/rails javascript:install:esbuild
           bin/rails css:install:bootstrap
