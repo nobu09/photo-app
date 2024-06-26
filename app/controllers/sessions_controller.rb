@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required
 
-  def new
-  end
+  def new; end
 
   def create
     error_message = []
