@@ -1,7 +1,7 @@
 require 'net/http'
 
 class OauthController < ApplicationController
-  REDIRECT_URI = 'http://localhost:3000/oauth/callback'
+  REDIRECT_URI = 'http://localhost:3000/oauth/callback'.freeze
 
   def authorize
     redirect_to(

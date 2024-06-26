@@ -143,13 +143,6 @@ Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: literals, strict
-Style/MutableConstant:
-  Exclude:
-    - 'app/controllers/oauth_controller.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
