@@ -69,6 +69,7 @@ group :development do
   # gem "spring"
 
   gem 'rubocop', require: false
+  gem 'rubocop_challenger'
 end
 
 group :test do
