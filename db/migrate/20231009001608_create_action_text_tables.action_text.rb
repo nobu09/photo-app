@@ -16,6 +16,7 @@ class CreateActionTextTables < ActiveRecord::Migration[6.0]
   end
 
   private
+
   def primary_and_foreign_key_types
     config = Rails.configuration.generators
     setting = config.options[config.orm][:primary_key_type]
