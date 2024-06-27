@@ -2,6 +2,11 @@ name: rubocop-todo-corrector
 
 on:
   workflow_dispatch:
+    inputs:
+      cop_name:
+        description: Pass cop name if you want to pick a specific cop.
+        required: false
+        type: string
 
 jobs:
   run:
@@ -9,4 +14,5 @@ jobs:
     steps:
       - uses: r7kamura/rubocop-todo-corrector@v0.19.1
         with:
-          label: rubocop-todo-corrector
+          cop_name: ${{ inputs.cop_name }}
+          mode: least_occurred
