@@ -16,4 +16,3 @@ jobs:
         with:
           cop_name: ${{ inputs.cop_name }}
           mode: least_occurred
-          ignore: true
