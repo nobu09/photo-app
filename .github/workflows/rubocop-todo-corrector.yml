@@ -8,3 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: r7kamura/rubocop-todo-corrector@v0.19.1
+        with:
+          label: rubocop-todo-corrector
