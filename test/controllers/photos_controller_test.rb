@@ -5,7 +5,7 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
     get photos_path
     assert_redirected_to login_path
 
-    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
+    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" } }
 
     get photos_path
     assert_response :success
@@ -15,14 +15,14 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
     get new_photo_path
     assert_redirected_to login_path
 
-    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
+    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" } }
 
     get new_photo_path
     assert_response :success
   end
 
   test "写真をアップロードできる" do
-    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
+    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" } }
     post photos_path, params: {
       photo: {
         title: "テスト画像",
@@ -36,7 +36,7 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "写真アップロードでエラー" do
-    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" }}
+    post login_path, params: { session: { login: "user1", password: "P@ssw0rd" } }
     post photos_path, params: {
       photo: { title: "", image: nil }
     }
