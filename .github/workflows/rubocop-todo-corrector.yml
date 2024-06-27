@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       cop_name:
-        description: Pass cop name if you want to pick a specific cop.
+        description: （任意） Copを指定したい場合はCop名を入力してください ex.Layout/Alignment
         required: false
         type: string
 
