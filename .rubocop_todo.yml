@@ -11,10 +11,7 @@
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: around, only_before
 Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'db/migrate/20220911020851_create_active_storage_tables.active_storage.rb'
-    - 'db/migrate/20231009001608_create_action_text_tables.action_text.rb'
-    - 'db/migrate/20231009001959_create_action_mailbox_tables.action_mailbox.rb'
+  Enabled: false
 
 # Offense count: 12
 # This cop supports safe autocorrection (--autocorrect).
